@@ -138,12 +138,10 @@ install_node() {
   local dir=$VERSIONS_DIR/$version
   if test -d $dir; then
     ln -sT "$N_PREFIX/n/versions/$version" "$N_PREFIX/n/current"
-    # TODO: refactor, this is lame
-    cd $dir \
-      && mkdir -p $N_PREFIX/lib/node \
-      && cp -fr $dir/include/node $N_PREFIX/include \
-      && cp -f $dir/bin/* $N_PREFIX/bin \
-      && cp -fr $dir/lib/node/* $N_PREFIX/lib/node/
+    ln -sf $dir/include/* $N_PREFIX/include
+    ln -sf $dir/lib/* $N_PREFIX/lib
+    ln -sf $dir/bin/* $N_PREFIX/bin
+    cp -rf $dir/share/* $N_PREFIX/share
   # install
   else
     local tarball="node-v$version.tar.gz"
