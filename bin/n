@@ -137,6 +137,7 @@ install_node() {
   # activate
   local dir=$VERSIONS_DIR/$version
   if test -d $dir; then
+    ln -sT "$N_PREFIX/n/versions/$version" "$N_PREFIX/n/current"
     # TODO: refactor, this is lame
     cd $dir \
       && mkdir -p $N_PREFIX/lib/node \
@@ -198,8 +199,7 @@ install_tarball() {
     && cleanup $version \
     && mkdir -p $dir \
     && echo $config > "$dir/.config" \
-    && n $version \
-    && ln -s "$N_PREFIX/n/versions/$version" "$N_PREFIX/n/current"
+    && n $version
 }
 
 #
