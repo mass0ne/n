@@ -10,6 +10,14 @@ or
 
     $ make install
 
+Add current dir into the PATH env, use `~/.profile`:
+
+    PATH="/usr/local/n/current/bin:$PATH"
+
+or
+
+    PATH="$N_PREFIX/current/bin:$PATH"
+
 ### Installing Binaries
 
 Install a few nodes ("v" is optional), the version given becomes the active node binary once installation is complete.
