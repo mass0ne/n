@@ -137,7 +137,7 @@ install_node() {
   # activate
   local dir=$VERSIONS_DIR/$version
   if test -d $dir; then
-    ln -sT "$N_PREFIX/n/versions/$version" "$N_PREFIX/n/current"
+    ln -sfT "$N_PREFIX/n/versions/$version" "$N_PREFIX/n/current"
     ln -sf $dir/include/* $N_PREFIX/include
     ln -sf $dir/lib/* $N_PREFIX/lib
     ln -sf $dir/bin/* $N_PREFIX/bin
